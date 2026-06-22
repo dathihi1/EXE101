@@ -1,3 +1,10 @@
+---
+title: EXE101 VSL Test
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # VSL MVP Sign Recognition
 
 MVP training and demo pipeline for Vietnamese Sign Language isolated word recognition using VSL400 front-view videos.

@@ -5,7 +5,6 @@ import json
 import random
 
 import numpy as np
-import torch
 
 
 def ensure_parent(path: str | Path) -> None:
@@ -22,6 +21,8 @@ def write_json(path: str | Path, data) -> None:
 
 
 def seed_everything(seed: int) -> None:
+    import torch
+
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
