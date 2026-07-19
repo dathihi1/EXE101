@@ -1,0 +1,59 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: backend
+
+  profiles:
+    active: default
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/light_sound
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+# Logging settings
+logging:
+  level:
+    org.hibernate.SQL: ERROR
+    org.springframework.web: INFO
+
+vsl:
+  auth:
+    secret: ${VSL_AUTH_SECRET:local-development-secret-change-in-production}
+  recognition:
+    inference-url: ${VSL_RECOGNITION_URL:http://localhost:7860/api/infer/frames}
+    public-url: ${VSL_RECOGNITION_PUBLIC_URL:http://localhost:7860}
+  rewards:
+    learned-xp: 20
+    verified-xp: 30
+    daily-xp: 100
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false

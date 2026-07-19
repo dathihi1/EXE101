@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "courses": [
+    {"id":"vsl-family","title":"Gia đình và xưng hô","description":"Những cách xưng hô thường gặp trong gia đình.","order":1,"unlockRatio":0.0,"signs":[
+      {"signId":"anh","displayName":"Anh","sampleIndex":0,"tip":"Giữ thân người thẳng và thực hiện động tác trong vùng trước ngực."},
+      {"signId":"chau","displayName":"Cháu","sampleIndex":1,"tip":"Quan sát hướng bàn tay và vị trí kết thúc động tác."},
+      {"signId":"chu","displayName":"Chú","sampleIndex":2,"tip":"Giữ hai vai trong khung hình khi luyện tập."},
+      {"signId":"chi","displayName":"Chị","sampleIndex":3,"tip":"Thực hiện chậm một lần trước khi bắt đầu ghi hình."},
+      {"signId":"co","displayName":"Cô","sampleIndex":9,"tip":"Đặt camera ngang tầm ngực và tránh ngược sáng."},
+      {"signId":"cau","displayName":"Cậu","sampleIndex":10,"tip":"Để bàn tay xuất hiện trọn vẹn trong khung hướng dẫn."},
+      {"signId":"em","displayName":"Em","sampleIndex":13,"tip":"Lặp lại theo video mẫu với nhịp độ tự nhiên."},
+      {"signId":"ho-hang","displayName":"Họ hàng","sampleIndex":15,"tip":"Chú ý cả chuyển động của hai tay và biểu cảm khuôn mặt."}
+    ]},
+    {"id":"vsl-home","title":"Nhà cửa và đồ dùng","description":"Từ vựng về căn nhà và các đồ dùng quen thuộc.","order":2,"unlockRatio":0.7,"signs":[
+      {"signId":"cai-ban","displayName":"Cái bàn","sampleIndex":5,"tip":"Giữ khoảng cách đủ để camera thấy cả hai bàn tay."},
+      {"signId":"cai-chao","displayName":"Cái chảo","sampleIndex":6,"tip":"Chú ý hình dạng bàn tay ở đầu và cuối động tác."},
+      {"signId":"cai-cua","displayName":"Cái cửa","sampleIndex":7,"tip":"Thực hiện đúng hướng chuyển động như video mẫu."},
+      {"signId":"cai-den","displayName":"Cái đèn","sampleIndex":8,"tip":"Không để bàn tay ra ngoài mép khung hình."},
+      {"signId":"cua-so","displayName":"Cửa sổ","sampleIndex":11,"tip":"Đảm bảo nền phía sau đơn giản và đủ sáng."},
+      {"signId":"giuong","displayName":"Giường","sampleIndex":14,"tip":"Bắt đầu khi chỉ báo tay đã chuyển sang màu xanh."},
+      {"signId":"may-dieu-hoa","displayName":"Máy điều hòa","sampleIndex":16,"tip":"Giữ nhịp động tác đều trong toàn bộ hai giây."},
+      {"signId":"noi-com-dien","displayName":"Nồi cơm điện","sampleIndex":25,"tip":"Xem video ở tốc độ chậm nếu động tác có nhiều bước."},
+      {"signId":"quat-dung","displayName":"Quạt đứng","sampleIndex":26,"tip":"Giữ cổ tay và khuỷu tay trong vùng camera."}
+    ]},
+    {"id":"vsl-places","title":"Trường học, nơi chốn và nghề nghiệp","description":"Từ vựng dùng khi nói về học tập, công việc và địa điểm.","order":3,"unlockRatio":0.7,"signs":[
+      {"signId":"nghe-nghiep","displayName":"Nghề nghiệp","sampleIndex":19,"tip":"Quan sát kỹ vị trí tay so với thân người."},
+      {"signId":"ngay-nha-giao-viet-nam","displayName":"Ngày Nhà giáo Việt Nam","sampleIndex":20,"tip":"Chia động tác dài thành từng nhịp để ghi nhớ."},
+      {"signId":"ngan-hang","displayName":"Ngân hàng","sampleIndex":21,"tip":"Giữ tốc độ ổn định và không dừng giữa động tác."},
+      {"signId":"nha-hang","displayName":"Nhà hàng","sampleIndex":22,"tip":"Kiểm tra hướng lòng bàn tay trước khi luyện."},
+      {"signId":"nha-tro","displayName":"Nhà trọ","sampleIndex":23,"tip":"Đứng cách camera khoảng một sải tay."},
+      {"signId":"truong-hoc","displayName":"Trường học","sampleIndex":27,"tip":"Để camera thấy rõ vai, khuỷu tay và bàn tay."},
+      {"signId":"truong-dai-hoc","displayName":"Trường Đại học","sampleIndex":28,"tip":"So sánh điểm khác biệt với ký hiệu Trường học."}
+    ]},
+    {"id":"vsl-weather","title":"Thời gian, thời tiết và mô tả","description":"Các từ cơ bản về ngày, mùa, thời tiết và mức độ.","order":4,"unlockRatio":0.7,"signs":[
+      {"signId":"chu-nhat","displayName":"Chủ nhật","sampleIndex":4,"tip":"Thực hiện trọn động tác trong một nhịp liên tục."},
+      {"signId":"de","displayName":"Dễ","sampleIndex":12,"tip":"Chú ý biểu cảm và hướng chuyển động ngắn."},
+      {"signId":"mua-he","displayName":"Mùa hè","sampleIndex":17,"tip":"Giữ đầu và vai ổn định trong khi tay chuyển động."},
+      {"signId":"mua-kho","displayName":"Mùa khô","sampleIndex":18,"tip":"Xem lại video mẫu trước khi ghi hình."},
+      {"signId":"nang","displayName":"Nắng","sampleIndex":24,"tip":"Không đứng ngược sáng khi luyện ký hiệu này."},
+      {"signId":"uot","displayName":"Ướt","sampleIndex":29,"tip":"Thực hiện động tác đủ rộng để hệ thống nhận diện."}
+    ]}
+  ]
+}

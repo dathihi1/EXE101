@@ -18,6 +18,6 @@ RUN pip install --no-cache-dir -r requirements-deploy.txt
 
 COPY src ./src
 COPY runs/vsl_mvp30_v2_lite_transformer ./runs/vsl_mvp30_v2_lite_transformer
-COPY data/practice_videos ./data/practice_videos
+COPY data/practice_videos_web ./data/practice_videos_web
 
 CMD ["python", "-m", "vsl_mvp.deploy_app", "--host", "0.0.0.0", "--port", "7860"]

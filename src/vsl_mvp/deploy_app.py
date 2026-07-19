@@ -11,14 +11,17 @@ import re
 import shutil
 import tempfile
 import threading
+from queue import Queue
 from typing import Any
 from uuid import uuid4
 import base64
 import unicodedata
 
+import numpy as np
+
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse
 
 from .config import FeatureConfigV2
 from .infer import OnnxSignRecognizer
@@ -28,7 +31,7 @@ from .landmarks_v2 import HolisticLandmarkExtractor
 
 DEFAULT_MODEL_DIR = Path("runs/vsl_mvp30_v2_lite_transformer")
 DEFAULT_LOG_DIR = Path("runs/deploy_tests")
-DEFAULT_SAMPLE_VIDEO_DIR = Path("data/practice_videos")
+DEFAULT_SAMPLE_VIDEO_DIR = Path("data/practice_videos_web")
 VIDEO_EXTENSIONS = {
     "video/mp4": ".mp4",
     "video/webm": ".webm",
@@ -51,6 +54,30 @@ def text_key(text: str) -> str:
     normalized = unicodedata.normalize("NFKD", text).replace("đ", "d").replace("Đ", "D")
     without_marks = "".join(char for char in normalized if not unicodedata.combining(char))
     return " ".join(without_marks.replace("_", " ").casefold().split())
+
+
+def stable_sign_id(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", text_key(text)).strip("-")
+
+
+def quality_hints(status: str, quality: dict[str, Any] | None = None) -> list[str]:
+    quality = quality or {}
+    hints: list[str] = []
+    hand_ratio = float(quality.get("hand_frame_ratio", quality.get("any_hand_ratio", 1.0)) or 0.0)
+    both_ratio = float(quality.get("both_hands_ratio", 1.0) or 0.0)
+    if status in {"no_hand", "no_hands", "low_hand_visibility"} or hand_ratio < 0.55:
+        hints.append("Đưa bàn tay vào giữa khung hình và đứng cách camera khoảng một sải tay.")
+    if both_ratio < 0.35:
+        hints.append("Giữ cả hai bàn tay trong khung nếu ký hiệu sử dụng hai tay.")
+    if status in {"too_short", "not_enough_frames"}:
+        hints.append("Thực hiện trọn động tác trong khoảng hai giây.")
+    if status in {"low_confidence", "uncertain_intent"}:
+        hints.append("Thử lại chậm hơn và bắt đầu đúng tư thế trong video mẫu.")
+    if status == "wrong_target":
+        hints.append("Ký hiệu nhận được chưa khớp từ đang luyện. Hãy xem lại video mẫu.")
+    if not hints and status != "ok":
+        hints.append("Đảm bảo đủ sáng, nền đơn giản và camera nhìn rõ phần thân trên.")
+    return hints
 
 
 def sample_label_from_path(path: Path) -> str:
@@ -118,6 +145,15 @@ class DeployRecognizer:
 
         self.recognizer = OnnxSignRecognizer(self.model_path, self.labels_path, self.config_path)
         self.extractor, self.schema_version, self.extractor_name = build_extractor(self.recognizer)
+        worker_count = max(1, min(int(os.getenv("INFERENCE_WORKERS", "2")), 4))
+        self.inference_workers = worker_count
+        self.extractors = [self.extractor]
+        for _ in range(1, worker_count):
+            extractor, _, _ = build_extractor(self.recognizer)
+            self.extractors.append(extractor)
+        self.available_extractors: Queue[Any] = Queue(maxsize=worker_count)
+        for extractor in self.extractors:
+            self.available_extractors.put(extractor)
         self.labels = list(self.recognizer.labels)
         self.log_dir = log_dir
         self.video_dir = log_dir / "videos"
@@ -126,7 +162,7 @@ class DeployRecognizer:
         self.sample_video_dir = sample_video_dir
         self.log_dir.mkdir(parents=True, exist_ok=True)
         self.video_dir.mkdir(parents=True, exist_ok=True)
-        self.lock = threading.Lock()
+        self.log_lock = threading.Lock()
 
         self.drive: GoogleDriveUploader | None = None
         self.webhook_url = os.getenv("LOG_WEBHOOK_URL", "").strip()
@@ -149,7 +185,8 @@ class DeployRecognizer:
         return int8_path if int8_path.exists() else model_dir / "model.onnx"
 
     def close(self) -> None:
-        self.extractor.close()
+        for extractor in self.extractors:
+            extractor.close()
 
     def _build_sample_video_map(self) -> dict[str, Path]:
         if not self.sample_video_dir.exists():
@@ -179,8 +216,9 @@ class DeployRecognizer:
         return output_path, content_type
 
     def predict_video(self, path: Path) -> dict[str, Any]:
-        with self.lock:
-            extract_result = self.extractor.extract_video(path)
+        extractor = self.available_extractors.get()
+        try:
+            extract_result = extractor.extract_video(path)
             if extract_result.status != "ok":
                 quality = getattr(extract_result, "quality", {})
                 return {
@@ -194,35 +232,73 @@ class DeployRecognizer:
             prediction["status"] = prediction.get("status", "ok")
             prediction["quality"] = getattr(extract_result, "quality", {})
             return prediction
+        finally:
+            self.available_extractors.put(extractor)
+
+    def predict_frames(self, encoded_frames: list[bytes]) -> dict[str, Any]:
+        import cv2
+
+        decoded_frames: list[np.ndarray] = []
+        for encoded in encoded_frames:
+            frame = cv2.imdecode(np.frombuffer(encoded, dtype=np.uint8), cv2.IMREAD_COLOR)
+            if frame is not None:
+                decoded_frames.append(frame)
+        if len(decoded_frames) < 8:
+            return {
+                "status": "not_enough_frames",
+                "label": "",
+                "confidence": 0.0,
+                "top3": [],
+                "quality": {},
+            }
+        extractor = self.available_extractors.get()
+        try:
+            extract_result = extractor.extract_frames(decoded_frames)
+            quality = getattr(extract_result, "quality", {})
+            if extract_result.status != "ok":
+                return {
+                    "status": extract_result.status,
+                    "label": "",
+                    "confidence": 0.0,
+                    "top3": [],
+                    "quality": quality,
+                }
+            prediction = self.recognizer.predict(extract_result.features)
+            prediction["status"] = prediction.get("status", "ok")
+            prediction["quality"] = quality
+            return prediction
+        finally:
+            self.available_extractors.put(extractor)
 
     def append_log(self, payload: dict[str, Any]) -> None:
-        with self.log_path.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
-        prediction = payload.get("prediction", {})
-        quality = prediction.get("quality", {})
-        top3 = prediction.get("top3", [])
-        drive = payload.get("drive", {})
-        drive_video = drive.get("video", {}) if isinstance(drive, dict) else {}
-        row = {
-            "timestamp": payload.get("timestamp", ""),
-            "member": payload.get("member", ""),
-            "target_label": payload.get("target_label", ""),
-            "predicted_label": prediction.get("label", ""),
-            "confidence": prediction.get("confidence", 0.0),
-            "status": prediction.get("status", ""),
-            "verified": payload.get("verified", False),
-            "video_filename": payload.get("video_filename", ""),
-            "drive_file_id": drive_video.get("id", ""),
-            "drive_link": drive_video.get("webViewLink", ""),
-            "top3_json": json.dumps(top3, ensure_ascii=False),
-            "quality_json": json.dumps(quality, ensure_ascii=False),
-        }
-        write_header = not self.csv_log_path.exists()
-        with self.csv_log_path.open("a", encoding="utf-8-sig", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=list(row.keys()))
-            if write_header:
-                writer.writeheader()
-            writer.writerow(row)
+        with self.log_lock:
+            with self.log_path.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(payload, ensure_ascii=False) + "\n")
+            prediction = payload.get("prediction", {})
+            quality = prediction.get("quality", {})
+            top3 = prediction.get("top3", [])
+            drive = payload.get("drive", {})
+            drive_video = drive.get("video", {}) if isinstance(drive, dict) else {}
+            row = {
+                "timestamp": payload.get("timestamp", ""),
+                "member": payload.get("member", ""),
+                "target_label": payload.get("target_label", ""),
+                "predicted_label": prediction.get("label", ""),
+                "confidence": prediction.get("confidence", 0.0),
+                "status": prediction.get("status", ""),
+                "verified": payload.get("verified", False),
+                "video_filename": payload.get("video_filename", ""),
+                "drive_file_id": drive_video.get("id", ""),
+                "drive_link": drive_video.get("webViewLink", ""),
+                "top3_json": json.dumps(top3, ensure_ascii=False),
+                "quality_json": json.dumps(quality, ensure_ascii=False),
+            }
+            write_header = not self.csv_log_path.exists()
+            with self.csv_log_path.open("a", encoding="utf-8-sig", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=list(row.keys()))
+                if write_header:
+                    writer.writeheader()
+                writer.writerow(row)
 
     def maybe_upload_to_drive(self, video_path: Path, content_type: str, payload: dict[str, Any]) -> dict[str, Any]:
         if self.drive is None:
@@ -332,62 +408,34 @@ def create_app(
             "sample_stream_urls": sample_stream_urls,
             "schema_version": recognizer.schema_version,
             "extractor": recognizer.extractor_name,
+            "inference_workers": recognizer.inference_workers,
             "google_drive_enabled": recognizer.drive is not None,
             "webhook_enabled": bool(recognizer.webhook_url),
             "storage_status": storage_status,
         }
 
+    def sample_video_response(label_index: int) -> FileResponse:
+        recognizer: DeployRecognizer = app.state.recognizer
+        if label_index < 0 or label_index >= len(recognizer.labels):
+            raise HTTPException(status_code=404, detail="Sample not found.")
+        label = recognizer.labels[label_index]
+        path = recognizer.sample_videos.get(label)
+        if path is None or not path.exists():
+            raise HTTPException(status_code=404, detail="Sample not found.")
+        return FileResponse(
+            path,
+            media_type="video/mp4",
+            headers={"Cache-Control": "public, max-age=86400, immutable"},
+        )
+
     @app.get("/api/sample/{label_index}")
     def sample_video(label_index: int) -> FileResponse:
-        recognizer: DeployRecognizer = app.state.recognizer
-        if label_index < 0 or label_index >= len(recognizer.labels):
-            raise HTTPException(status_code=404, detail="Sample not found.")
-        label = recognizer.labels[label_index]
-        path = recognizer.sample_videos.get(label)
-        if path is None or not path.exists():
-            raise HTTPException(status_code=404, detail="Sample not found.")
-        return FileResponse(path, media_type="video/mp4")
+        return sample_video_response(label_index)
 
     @app.get("/api/sample_stream/{label_index}")
-    def sample_stream(label_index: int) -> StreamingResponse:
-        import time
-
-        import cv2
-
-        recognizer: DeployRecognizer = app.state.recognizer
-        if label_index < 0 or label_index >= len(recognizer.labels):
-            raise HTTPException(status_code=404, detail="Sample not found.")
-        label = recognizer.labels[label_index]
-        path = recognizer.sample_videos.get(label)
-        if path is None or not path.exists():
-            raise HTTPException(status_code=404, detail="Sample not found.")
-
-        def frames():
-            while True:
-                cap = cv2.VideoCapture(str(path))
-                if not cap.isOpened():
-                    break
-                fps = cap.get(cv2.CAP_PROP_FPS) or 15.0
-                delay = min(max(1.0 / fps, 0.03), 0.12)
-                try:
-                    while True:
-                        ok, frame = cap.read()
-                        if not ok:
-                            break
-                        ok, buffer = cv2.imencode(".jpg", frame, [int(cv2.IMWRITE_JPEG_QUALITY), 82])
-                        if not ok:
-                            continue
-                        yield (
-                            b"--frame\r\n"
-                            b"Content-Type: image/jpeg\r\n\r\n"
-                            + buffer.tobytes()
-                            + b"\r\n"
-                        )
-                        time.sleep(delay)
-                finally:
-                    cap.release()
-
-        return StreamingResponse(frames(), media_type="multipart/x-mixed-replace; boundary=frame")
+    def sample_stream(label_index: int) -> FileResponse:
+        """Backward-compatible alias; sample videos are static MP4 files now."""
+        return sample_video_response(label_index)
 
     @app.post("/api/attempt")
     def attempt(
@@ -419,6 +467,52 @@ def create_app(
         recognizer.append_log(payload)
         return payload
 
+    @app.post("/api/infer/frames")
+    async def infer_frames(
+        expected_sign_id: str = Form(...),
+        frames: list[UploadFile] = File(...),
+    ) -> dict[str, Any]:
+        """Recognize JPEG frames in memory; raw user media is never persisted."""
+        if not 8 <= len(frames) <= 32:
+            raise HTTPException(status_code=400, detail="Frame count must be between 8 and 32.")
+        encoded: list[bytes] = []
+        total_bytes = 0
+        for frame in frames:
+            if frame.content_type not in {"image/jpeg", "image/jpg", "application/octet-stream"}:
+                raise HTTPException(status_code=400, detail="All frames must be JPEG images.")
+            data = await frame.read()
+            total_bytes += len(data)
+            if total_bytes > 2 * 1024 * 1024:
+                raise HTTPException(status_code=413, detail="Frame payload exceeds 2 MB.")
+            encoded.append(data)
+
+        recognizer: DeployRecognizer = app.state.recognizer
+        prediction = recognizer.predict_frames(encoded)
+        predicted_label = str(prediction.get("label", ""))
+        predicted_sign_id = stable_sign_id(predicted_label) if predicted_label else ""
+        status = str(prediction.get("status", "unknown"))
+        expected = expected_sign_id.strip()
+        verified = bool(expected and predicted_sign_id == expected and status == "ok")
+        if status == "ok" and expected and predicted_sign_id != expected:
+            status = "wrong_target"
+        quality = prediction.get("quality", {})
+        top3 = [{
+            "signId": stable_sign_id(str(item.get("label", ""))),
+            "label": str(item.get("label", "")),
+            "confidence": float(item.get("confidence", 0.0)),
+        } for item in prediction.get("top3", [])]
+        return {
+            "status": status,
+            "verified": verified,
+            "predictedSignId": predicted_sign_id,
+            "predictedLabel": predicted_label,
+            "confidence": float(prediction.get("confidence", 0.0)),
+            "top3": top3,
+            "quality": quality,
+            "qualityHints": quality_hints(status, quality),
+            "retainedMedia": False,
+        }
+
     return app
 
 
@@ -437,7 +531,7 @@ HTML_PAGE = """
     section { background: #fff; border: 1px solid #d9dee7; border-radius: 8px; padding: 18px; margin: 14px 0; }
     label { display: block; font-size: 13px; font-weight: 700; margin: 12px 0 6px; }
     input, select { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #c8ced8; border-radius: 6px; font-size: 15px; }
-    video, img.sample-video { width: 100%; max-height: 420px; background: #111; border-radius: 8px; object-fit: contain; }
+    video { width: 100%; max-height: 420px; background: #111; border-radius: 8px; object-fit: contain; }
     #preview { transform: scaleX(-1); }
     button { border: 0; border-radius: 6px; padding: 10px 14px; font-size: 15px; font-weight: 700; cursor: pointer; margin: 10px 8px 0 0; }
     button.primary { background: #1f6feb; color: #fff; }
@@ -470,7 +564,7 @@ HTML_PAGE = """
       <div class="video-grid">
         <div>
           <p class="video-title">Video mau</p>
-          <img id="sample" class="sample-video" alt="Video mau" />
+          <video id="sample" autoplay muted loop playsinline controls preload="metadata"></video>
         </div>
         <div>
           <p class="video-title">Camera test</p>
@@ -505,11 +599,19 @@ HTML_PAGE = """
     function updateSampleVideo() {
       if (!appInfo) return;
       const selectedIndex = target.selectedIndex - 1;
-      const url = appInfo.sample_stream_urls && appInfo.sample_stream_urls[selectedIndex];
+      const url = appInfo.sample_urls && appInfo.sample_urls[selectedIndex];
       if (url) {
-        sample.src = `${url}?t=${Date.now()}`;
+        if (sample.dataset.src !== url) {
+          sample.src = url;
+          sample.dataset.src = url;
+          sample.load();
+          sample.play().catch(() => {});
+        }
       } else {
+        sample.pause();
         sample.removeAttribute('src');
+        delete sample.dataset.src;
+        sample.load();
       }
     }
 
