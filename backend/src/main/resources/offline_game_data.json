@@ -1,0 +1,340 @@
+{
+  "profile": {
+    "userName": "offline_player",
+    "name": "Offline Player",
+    "orgId": "local",
+    "orgName": "Local Academy",
+    "rewards": []
+  },
+  "aboutContent": "<html><body><h2>About Game</h2><p>This build runs fully offline with local course data.</p><p>Master every lesson to improve your total course score.</p></body></html>",
+  "defaultUnlockedLessonCount": 3,
+  "courses": [
+    {
+      "id": "course-shapes-01",
+      "name": "Shapes Starter",
+      "description": "Learn the basics of shape recognition.",
+      "price": 2500,
+      "storeDescription": "Unlock all shape lessons with more practice sets.",
+      "lessons": [
+        {
+          "id": "course-shapes-01-lesson-01",
+          "title": "Lesson 1",
+          "order": 1,
+          "description": "Identify simple 2D shapes.",
+          "questions": [
+            {
+              "id": "course-shapes-01-lesson-01-q1",
+              "questionIndex": 1,
+              "type": 0,
+              "content": "Which shape has exactly three sides?",
+              "answers": ["Triangle", "Circle", "Square", "Oval"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-shapes-01-lesson-01-q2",
+              "questionIndex": 2,
+              "type": 0,
+              "content": "Which shape has four equal sides?",
+              "answers": ["Rectangle", "Square", "Triangle", "Circle"],
+              "correctAnswers": [1],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-shapes-01-lesson-01-q3",
+              "questionIndex": 3,
+              "type": 0,
+              "content": "Which shape is round?",
+              "answers": ["Circle", "Cube", "Triangle", "Star"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            }
+          ]
+        },
+        {
+          "id": "course-shapes-01-lesson-02",
+          "title": "Lesson 2",
+          "order": 2,
+          "description": "Match shapes with common objects.",
+          "questions": [
+            {
+              "id": "course-shapes-01-lesson-02-q1",
+              "questionIndex": 1,
+              "type": 0,
+              "content": "Which object looks like a rectangle?",
+              "answers": ["Window", "Ball", "Orange", "Plate"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-shapes-01-lesson-02-q2",
+              "questionIndex": 2,
+              "type": 0,
+              "content": "Which shape has four equal sides?",
+              "answers": ["Rectangle", "Square", "Triangle", "Circle"],
+              "correctAnswers": [1],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-shapes-01-lesson-02-q3",
+              "questionIndex": 3,
+              "type": 0,
+              "content": "Which shape is round?",
+              "answers": ["Circle", "Cube", "Triangle", "Star"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            }
+          ]
+        },
+        {
+          "id": "course-shapes-01-lesson-03",
+          "title": "Lesson 3",
+          "order": 3,
+          "description": "Distinguish shapes with similar edges.",
+          "questions": [
+            {
+              "id": "course-shapes-01-lesson-03-q1",
+              "questionIndex": 1,
+              "type": 0,
+              "content": "Which shape has exactly three sides?",
+              "answers": ["Triangle", "Circle", "Square", "Oval"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-shapes-01-lesson-03-q2",
+              "questionIndex": 2,
+              "type": 0,
+              "content": "Which shape has four equal sides?",
+              "answers": ["Rectangle", "Square", "Triangle", "Circle"],
+              "correctAnswers": [1],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-shapes-01-lesson-03-q3",
+              "questionIndex": 3,
+              "type": 0,
+              "content": "Which shape is round?",
+              "answers": ["Circle", "Cube", "Triangle", "Star"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            }
+          ]
+        },
+        {
+          "id": "course-shapes-01-lesson-04",
+          "title": "Lesson 4",
+          "order": 4,
+          "description": "Solve a mixed shape challenge.",
+          "questions": [
+            {
+              "id": "course-shapes-01-lesson-04-q1",
+              "questionIndex": 1,
+              "type": 0,
+              "content": "Which object looks like a rectangle?",
+              "answers": ["Window", "Ball", "Orange", "Plate"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-shapes-01-lesson-04-q2",
+              "questionIndex": 2,
+              "type": 0,
+              "content": "Which shape has four equal sides?",
+              "answers": ["Rectangle", "Square", "Triangle", "Circle"],
+              "correctAnswers": [1],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-shapes-01-lesson-04-q3",
+              "questionIndex": 3,
+              "type": 0,
+              "content": "Which shape is round?",
+              "answers": ["Circle", "Cube", "Triangle", "Star"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "course-sounds-01",
+      "name": "Sound Explorer",
+      "description": "Practice matching everyday sounds with objects.",
+      "price": 3000,
+      "storeDescription": "Unlock advanced sound lessons and extra drills.",
+      "lessons": [
+        {
+          "id": "course-sounds-01-lesson-01",
+          "title": "Lesson 1",
+          "order": 1,
+          "description": "Recognize familiar daily sounds.",
+          "questions": [
+            {
+              "id": "course-sounds-01-lesson-01-q1",
+              "questionIndex": 1,
+              "type": 0,
+              "content": "Which item usually makes a ringing sound?",
+              "answers": ["Bell", "Pillow", "Book", "Chair"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-sounds-01-lesson-01-q2",
+              "questionIndex": 2,
+              "type": 0,
+              "content": "Which animal is known for barking?",
+              "answers": ["Dog", "Fish", "Cow", "Bee"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-sounds-01-lesson-01-q3",
+              "questionIndex": 3,
+              "type": 0,
+              "content": "Which object can beep when pressed?",
+              "answers": ["Horn", "Pencil", "Spoon", "Plant"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            }
+          ]
+        },
+        {
+          "id": "course-sounds-01-lesson-02",
+          "title": "Lesson 2",
+          "order": 2,
+          "description": "Separate animal and object sounds.",
+          "questions": [
+            {
+              "id": "course-sounds-01-lesson-02-q1",
+              "questionIndex": 1,
+              "type": 0,
+              "content": "Which item usually makes a ringing sound?",
+              "answers": ["Bell", "Pillow", "Book", "Chair"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-sounds-01-lesson-02-q2",
+              "questionIndex": 2,
+              "type": 0,
+              "content": "Which animal is known for barking?",
+              "answers": ["Dog", "Fish", "Cow", "Bee"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-sounds-01-lesson-02-q3",
+              "questionIndex": 3,
+              "type": 0,
+              "content": "Which object can beep when pressed?",
+              "answers": ["Horn", "Pencil", "Spoon", "Plant"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            }
+          ]
+        },
+        {
+          "id": "course-sounds-01-lesson-03",
+          "title": "Lesson 3",
+          "order": 3,
+          "description": "Match sounds to context clues.",
+          "questions": [
+            {
+              "id": "course-sounds-01-lesson-03-q1",
+              "questionIndex": 1,
+              "type": 0,
+              "content": "Which item usually makes a ringing sound?",
+              "answers": ["Bell", "Pillow", "Book", "Chair"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-sounds-01-lesson-03-q2",
+              "questionIndex": 2,
+              "type": 0,
+              "content": "Which animal is known for barking?",
+              "answers": ["Dog", "Fish", "Cow", "Bee"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-sounds-01-lesson-03-q3",
+              "questionIndex": 3,
+              "type": 0,
+              "content": "Which object can beep when pressed?",
+              "answers": ["Horn", "Pencil", "Spoon", "Plant"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            }
+          ]
+        },
+        {
+          "id": "course-sounds-01-lesson-04",
+          "title": "Lesson 4",
+          "order": 4,
+          "description": "Advanced sound recall.",
+          "questions": [
+            {
+              "id": "course-sounds-01-lesson-04-q1",
+              "questionIndex": 1,
+              "type": 0,
+              "content": "Which item usually makes a ringing sound?",
+              "answers": ["Bell", "Pillow", "Book", "Chair"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-sounds-01-lesson-04-q2",
+              "questionIndex": 2,
+              "type": 0,
+              "content": "Which animal is known for barking?",
+              "answers": ["Dog", "Fish", "Cow", "Bee"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            },
+            {
+              "id": "course-sounds-01-lesson-04-q3",
+              "questionIndex": 3,
+              "type": 0,
+              "content": "Which object can beep when pressed?",
+              "answers": ["Horn", "Pencil", "Spoon", "Plant"],
+              "correctAnswers": [0],
+              "point": 100,
+              "isHtmlContent": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "courseLeaderboards": [
+    { "courseId": "course-shapes-01", "name": "Mia", "orgName": "North School", "totalPoint": 900, "rank": 1 },
+    { "courseId": "course-shapes-01", "name": "Leo", "orgName": "River School", "totalPoint": 780, "rank": 2 },
+    { "courseId": "course-sounds-01", "name": "Ava", "orgName": "Hill School", "totalPoint": 860, "rank": 1 }
+  ]
+}

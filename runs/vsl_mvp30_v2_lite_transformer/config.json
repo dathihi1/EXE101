@@ -1,0 +1,160 @@
+{
+  "model": "lite_transformer",
+  "input_dim": 327,
+  "num_classes": 30,
+  "sequence_length": 64,
+  "schema_version": "v2_holistic_subset",
+  "feature_metadata": {
+    "schema_version": "v2_holistic_subset",
+    "sequence_length": 64,
+    "feature_dim": 327,
+    "base_dims": 285,
+    "pose_landmark_indices": [
+      0,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      23,
+      24
+    ],
+    "face_landmark_indices": [
+      10,
+      33,
+      61,
+      78,
+      81,
+      82,
+      87,
+      88,
+      91,
+      95,
+      133,
+      146,
+      159,
+      160,
+      161,
+      173,
+      178,
+      181,
+      185,
+      191,
+      199,
+      263,
+      291,
+      308,
+      311,
+      312,
+      317,
+      318,
+      321,
+      324,
+      362,
+      374,
+      386,
+      387,
+      388,
+      398,
+      402,
+      405,
+      409,
+      415,
+      454
+    ],
+    "slices": {
+      "left_hand": [
+        0,
+        63
+      ],
+      "right_hand": [
+        63,
+        126
+      ],
+      "pose": [
+        126,
+        162
+      ],
+      "face": [
+        162,
+        285
+      ],
+      "motion": [
+        285,
+        303
+      ],
+      "geometry": [
+        303,
+        319
+      ],
+      "quality": [
+        319,
+        327
+      ]
+    },
+    "motion_names": [
+      "left_hand_vx",
+      "left_hand_vy",
+      "left_hand_speed",
+      "right_hand_vx",
+      "right_hand_vy",
+      "right_hand_speed",
+      "left_wrist_vx",
+      "left_wrist_vy",
+      "left_wrist_speed",
+      "right_wrist_vx",
+      "right_wrist_vy",
+      "right_wrist_speed",
+      "hands_distance_delta",
+      "left_to_chest_delta",
+      "right_to_chest_delta",
+      "left_to_mouth_delta",
+      "right_to_mouth_delta",
+      "mean_hand_speed"
+    ],
+    "geometry_names": [
+      "hand_center_distance",
+      "left_to_chest",
+      "right_to_chest",
+      "left_to_mouth",
+      "right_to_mouth",
+      "left_to_chin",
+      "right_to_chin",
+      "left_to_head",
+      "right_to_head",
+      "left_to_left_shoulder",
+      "right_to_right_shoulder",
+      "left_hand_spread",
+      "right_hand_spread",
+      "left_palm_proxy",
+      "right_palm_proxy",
+      "torso_angle"
+    ],
+    "quality_names": [
+      "left_hand_detected",
+      "right_hand_detected",
+      "pose_detected",
+      "face_detected",
+      "any_hand_detected",
+      "both_hands_detected",
+      "hand_missing_rate",
+      "face_missing_rate"
+    ]
+  },
+  "confidence_threshold": 0.55,
+  "split_method": "group_shuffle_by_signer",
+  "train_samples": 588,
+  "val_samples": 210,
+  "effective_train_samples": 2352,
+  "augmentation": {
+    "augment_copies": 3,
+    "noise_std": 0.015,
+    "scale_std": 0.035,
+    "frame_drop_prob": 0.04,
+    "max_time_shift": 5,
+    "min_time_scale": 0.9,
+    "max_time_scale": 1.12,
+    "label_smoothing": 0.05
+  }
+}

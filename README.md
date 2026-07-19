@@ -1,4 +1,60 @@
-# VSL MVP Sign Recognition
+---
+title: EXE101 VSL Test
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
+# Light & Sound VSL
+
+Ứng dụng học Ngôn ngữ ký hiệu Việt Nam gồm ba phần:
+
+- `flutter_mvp/`: giao diện Flutter cho Android và Web.
+- `backend/`: Spring Boot API, tài khoản, tiến độ học và gateway nhận diện.
+- `src/vsl_mvp/`: dịch vụ AI FastAPI/ONNX nhận diện 30 ký hiệu.
+
+Unity/C# không phải giao diện của phiên bản này.
+
+## Chạy toàn bộ ứng dụng
+
+Yêu cầu: Python 3.11+, Java 21, Maven, Flutter và PostgreSQL.
+
+### 1. AI service — cổng 7860
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements-deploy.txt
+$env:PYTHONPATH = "$PWD\src"
+python -m vsl_mvp.deploy_app --host 0.0.0.0 --port 7860
+```
+
+### 2. Backend — cổng 8080
+
+Tạo database PostgreSQL tên `light_sound`, sau đó:
+
+```powershell
+cd backend
+$env:VSL_RECOGNITION_URL = "http://localhost:7860/api/infer/frames"
+$env:VSL_RECOGNITION_PUBLIC_URL = "http://localhost:7860"
+mvn spring-boot:run
+```
+
+Thông tin PostgreSQL mặc định là `postgres/postgres`; có thể thay đổi trong
+`backend/src/main/resources/application.yml`.
+
+### 3. Flutter
+
+```powershell
+cd flutter_mvp
+flutter pub get
+flutter run --dart-define=API_BASE_URL=http://127.0.0.1:8080
+```
+
+Android Emulator tự dùng backend tại `http://10.0.2.2:8080` khi không truyền
+`API_BASE_URL`. Với điện thoại thật, truyền địa chỉ LAN của máy chạy backend.
+
+## AI recognition service
 
 MVP training and demo pipeline for Vietnamese Sign Language isolated word recognition using VSL400 front-view videos.
 

@@ -34,6 +34,7 @@ def main() -> None:
         output_names=["logits"],
         dynamic_axes={"sequence": {0: "batch"}, "logits": {0: "batch"}},
         opset_version=17,
+        dynamo=False,
     )
     print(f"Exported {args.out}")
 

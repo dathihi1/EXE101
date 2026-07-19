@@ -7,8 +7,21 @@ data/raw/
 data/processed/
 data/*.zip
 *.zip
-runs/
+runs/*
+!runs/vsl_mvp30_v2_lite_transformer/
+runs/vsl_mvp30_v2_lite_transformer/*
+!runs/vsl_mvp30_v2_lite_transformer/model.int8.onnx
+!runs/vsl_mvp30_v2_lite_transformer/config.json
+!runs/vsl_mvp30_v2_lite_transformer/labels.json
 *.onnx
+!runs/vsl_mvp30_v2_lite_transformer/model.int8.onnx
 *.pt
 *.egg-info/
 
+# Local tooling and generated output
+/.codex/
+/backend/target/
+/Light_sound_exe101_G5/
+/stitch_export/
+/*.png
+/*.xml
