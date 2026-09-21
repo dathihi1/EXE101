@@ -8,7 +8,7 @@ if sys.stderr.encoding != 'utf-8':
     sys.stderr.reconfigure(encoding='utf-8')
 
 # Add src/ to python path so we can import vsl_mvp
-sys.path.append(str(Path(__file__).parent.parent / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
 import numpy as np
 from vsl_mvp.config import FeatureConfig, FeatureConfigV2

@@ -13,8 +13,18 @@ runs/vsl_mvp30_v2_lite_transformer/*
 !runs/vsl_mvp30_v2_lite_transformer/model.int8.onnx
 !runs/vsl_mvp30_v2_lite_transformer/config.json
 !runs/vsl_mvp30_v2_lite_transformer/labels.json
+
+!runs/vsl_mvp400_v2_lite_transformer/
+runs/vsl_mvp400_v2_lite_transformer/*
+!runs/vsl_mvp400_v2_lite_transformer/model.int8.onnx
+!runs/vsl_mvp400_v2_lite_transformer/model.onnx
+!runs/vsl_mvp400_v2_lite_transformer/config.json
+!runs/vsl_mvp400_v2_lite_transformer/labels.json
+
 *.onnx
 !runs/vsl_mvp30_v2_lite_transformer/model.int8.onnx
+!runs/vsl_mvp400_v2_lite_transformer/model.int8.onnx
+!runs/vsl_mvp400_v2_lite_transformer/model.onnx
 *.pt
 *.egg-info/
 

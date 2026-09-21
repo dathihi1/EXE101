@@ -1,0 +1,438 @@
+# Danh Sách 400 Từ Vựng Ngôn Ngữ Ký Hiệu (VSL-400)
+
+> **Bộ dữ liệu:** VSL-400 (Vietnamese Sign Language Dataset)
+> **Tổng số từ:** 400 từ đơn / cụm ký hiệu
+> **Tổng số video chính diện (Front-view):** 7,073 clips
+> **File Excel tải về gửi nhóm:** [`danh_sach_400_tu_vsl.xlsx`](file:///e:/EXE101/docs/danh_sach_400_tu_vsl.xlsx)
+> **File CSV tải về gửi nhóm:** [`danh_sach_400_tu_vsl.csv`](file:///e:/EXE101/docs/danh_sach_400_tu_vsl.csv)
+
+---
+
+## 1. Bảng Thống Kê Theo Nhóm Chủ Đề
+
+| STT | Nhóm chủ đề | Số lượng từ | Danh sách từ vựng tiêu biểu |
+| :---: | :--- | :---: | :--- |
+| 1 | **Gia đình & Xưng hô** | 20 | Anh, Chị, Em, Bố, Mẹ, Bà ngoại, Bà nội, Ông ngoại... |
+| 2 | **Nghề nghiệp & Xã hội** | 19 | Bác sĩ, Bảo vệ, Ca sĩ, Chủ tịch, Diễn viên, Giám đốc, Hiệu trưởng, Học sinh... |
+| 3 | **Động từ hành động & Sinh hoạt** | 60 | Ăn, Uống, Học, Làm việc, Làm bài tập, Đi, Chạy, Bơi lội... |
+| 4 | **Cảm xúc, Nhu cầu & Trạng thái tâm lý** | 12 | Thích, Ghét, Muốn, Cần, Yêu thương, Cảm thấy, Hy vọng, Thèm... |
+| 5 | **Tính từ & Miêu tả đặc điểm** | 83 | Cao (người), Cao (đồ vật), Thấp (đồ vật), Lùn, Mập, Già, Trẻ, Đẹp (người)... |
+| 6 | **Màu sắc** | 10 | Màu cam, Màu hồng, Màu nâu, Màu trắng, Màu tím, Màu vàng, Màu xanh da trời, Màu xanh lá cây... |
+| 7 | **Ẩm thực (Món ăn & Đồ uống)** | 19 | Bia, Bún, Bánh bao, Bánh chưng, Bánh tét, Bánh xèo, Cà phê, Gạo... |
+| 8 | **Trái cây (Hoa quả)** | 10 | Quả bơ, Quả cam, Quả chuối, Quả dâu, Quả dứa, Quả dừa, Quả mận, Quả xoài... |
+| 9 | **Đồ dùng, Thiết bị & Gia dụng** | 42 | Ba lô, Bàn phím, Bảng, Bút bi, Bút chì, Chìa khóa, Cái bàn, Cái chảo... |
+| 10 | **Trang phục & Phụ kiện** | 15 | Cái áo, Cái quần, Dép, Giày, Khăn quàng cổ, Kẹp tóc, Mũ, Mũ bảo hiểm... |
+| 11 | **Động vật** | 10 | Con bò, Con chó, Con dê, Con gà, Con heo, Con mèo, Con rùa, Con thỏ... |
+| 12 | **Phương tiện giao thông** | 10 | Máy bay, Thuyền, Taxi, Trực thăng, Tàu hỏa, Xe buýt, Xe máy, Xe tải... |
+| 13 | **Địa điểm & Công trình** | 17 | Bệnh viện, Chợ, Công ty, Công viên, Ngân hàng, Nhà, Nhà hàng, Nhà sách... |
+| 14 | **Thời gian, Lịch & Mùa** | 43 | Bây giờ, Bình minh, Hoàng hôn, Buổi sáng, Buổi trưa, Buổi chiều, Buổi tối, Giờ... |
+| 15 | **Thể thao & Giải trí** | 11 | Bóng bàn, Bóng chuyền, Bóng rổ, Bóng đá, Chơi cờ, Cầu lông, Cắm trại, Thể dục (thể thao)... |
+| 16 | **Quốc gia & Ngày lễ** | 13 | Việt Nam, Hàn Quốc, Mỹ, Nhật Bản, Thái Lan, Trung Quốc, Giáng sinh, Tết Âm lịch... |
+| 17 | **Trợ từ & Cụm phủ định** | 6 | Có, Không cho, Không cần, Không nghe lời, Không nên, Không quen |
+
+---
+
+## 2. Toàn Bộ 400 Từ Vựng Chi Tiết
+
+| STT | Ký hiệu (Gloss) | Nhóm chủ đề | Mẫu Front-view | Mẫu Full 3 góc |
+| :---: | :--- | :--- | :---: | :---: |
+| 1 | **Anh** | Gia đình & Xưng hô | 29 | 82 |
+| 2 | **Ba lô** | Đồ dùng, Thiết bị & Gia dụng | 18 | 59 |
+| 3 | **Bia** | Ẩm thực (Món ăn & Đồ uống) | 17 | 58 |
+| 4 | **Buổi chiều** | Thời gian, Lịch & Mùa | 16 | 56 |
+| 5 | **Buổi sáng** | Thời gian, Lịch & Mùa | 17 | 57 |
+| 6 | **Buổi trưa** | Thời gian, Lịch & Mùa | 16 | 57 |
+| 7 | **Buổi tối** | Thời gian, Lịch & Mùa | 14 | 54 |
+| 8 | **Bà ngoại** | Gia đình & Xưng hô | 18 | 60 |
+| 9 | **Bà nội** | Gia đình & Xưng hô | 18 | 70 |
+| 10 | **Bàn phím** | Đồ dùng, Thiết bị & Gia dụng | 17 | 58 |
+| 11 | **Bác** | Gia đình & Xưng hô | 21 | 69 |
+| 12 | **Bác sĩ** | Nghề nghiệp & Xã hội | 19 | 67 |
+| 13 | **Bánh bao** | Ẩm thực (Món ăn & Đồ uống) | 16 | 56 |
+| 14 | **Bánh chưng** | Ẩm thực (Món ăn & Đồ uống) | 17 | 66 |
+| 15 | **Bánh tét** | Ẩm thực (Món ăn & Đồ uống) | 17 | 66 |
+| 16 | **Bánh xèo** | Ẩm thực (Món ăn & Đồ uống) | 17 | 58 |
+| 17 | **Báo cáo** | Động từ hành động & Sinh hoạt | 16 | 64 |
+| 18 | **Bây giờ** | Thời gian, Lịch & Mùa | 17 | 75 |
+| 19 | **Bình minh** | Thời gian, Lịch & Mùa | 18 | 60 |
+| 20 | **Bóng bàn** | Thể thao & Giải trí | 16 | 60 |
+| 21 | **Bóng chuyền** | Thể thao & Giải trí | 17 | 63 |
+| 22 | **Bóng rổ** | Thể thao & Giải trí | 17 | 65 |
+| 23 | **Bóng đá** | Thể thao & Giải trí | 19 | 60 |
+| 24 | **Bún** | Ẩm thực (Món ăn & Đồ uống) | 16 | 62 |
+| 25 | **Bút bi** | Đồ dùng, Thiết bị & Gia dụng | 18 | 60 |
+| 26 | **Bút chì** | Đồ dùng, Thiết bị & Gia dụng | 17 | 63 |
+| 27 | **Bơi lội** | Động từ hành động & Sinh hoạt | 16 | 57 |
+| 28 | **Bảng** | Đồ dùng, Thiết bị & Gia dụng | 16 | 57 |
+| 29 | **Bảo vệ** | Nghề nghiệp & Xã hội | 16 | 56 |
+| 30 | **Bận** | Tính từ & Miêu tả đặc điểm | 16 | 60 |
+| 31 | **Bắt buộc** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 16 | 59 |
+| 32 | **Bắt chước** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 33 | **Bệnh viện** | Địa điểm & Công trình | 21 | 75 |
+| 34 | **Bố** | Gia đình & Xưng hô | 18 | 71 |
+| 35 | **Ca sĩ** | Nghề nghiệp & Xã hội | 16 | 64 |
+| 36 | **Cao (người)** | Tính từ & Miêu tả đặc điểm | 16 | 58 |
+| 37 | **Cao (đồ vật)** | Tính từ & Miêu tả đặc điểm | 16 | 58 |
+| 38 | **Cay** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 39 | **Cho** | Động từ hành động & Sinh hoạt | 17 | 57 |
+| 40 | **Chua** | Tính từ & Miêu tả đặc điểm | 17 | 60 |
+| 41 | **Cháu** | Gia đình & Xưng hô | 22 | 68 |
+| 42 | **Chìa khóa** | Đồ dùng, Thiết bị & Gia dụng | 21 | 62 |
+| 43 | **Chú** | Gia đình & Xưng hô | 22 | 65 |
+| 44 | **Chú ý** | Động từ hành động & Sinh hoạt | 17 | 70 |
+| 45 | **Chăm chỉ** | Tính từ & Miêu tả đặc điểm | 16 | 58 |
+| 46 | **Chơi cờ** | Thể thao & Giải trí | 18 | 64 |
+| 47 | **Chạy** | Động từ hành động & Sinh hoạt | 16 | 59 |
+| 48 | **Chậm chạp** | Tính từ & Miêu tả đặc điểm | 16 | 64 |
+| 49 | **Chật** | Tính từ & Miêu tả đặc điểm | 17 | 58 |
+| 50 | **Chết** | Tính từ & Miêu tả đặc điểm | 16 | 58 |
+| 51 | **Chị** | Gia đình & Xưng hô | 28 | 78 |
+| 52 | **Chồng** | Gia đình & Xưng hô | 17 | 60 |
+| 53 | **Chợ** | Địa điểm & Công trình | 20 | 62 |
+| 54 | **Chụp hình** | Động từ hành động & Sinh hoạt | 16 | 57 |
+| 55 | **Chủ nhật** | Thời gian, Lịch & Mùa | 25 | 74 |
+| 56 | **Chủ tịch** | Nghề nghiệp & Xã hội | 16 | 56 |
+| 57 | **Con bò** | Động vật | 16 | 56 |
+| 58 | **Con chó** | Động vật | 16 | 65 |
+| 59 | **Con dê** | Động vật | 17 | 59 |
+| 60 | **Con gà** | Động vật | 16 | 56 |
+| 61 | **Con gái** | Gia đình & Xưng hô | 16 | 58 |
+| 62 | **Con heo** | Động vật | 21 | 75 |
+| 63 | **Con mèo** | Động vật | 17 | 57 |
+| 64 | **Con rùa** | Động vật | 17 | 59 |
+| 65 | **Con thỏ** | Động vật | 16 | 56 |
+| 66 | **Con trai** | Gia đình & Xưng hô | 16 | 57 |
+| 67 | **Con trâu** | Động vật | 16 | 56 |
+| 68 | **Con vịt** | Động vật | 17 | 57 |
+| 69 | **Cung cấp** | Động từ hành động & Sinh hoạt | 17 | 58 |
+| 70 | **Cà phê** | Ẩm thực (Món ăn & Đồ uống) | 17 | 57 |
+| 71 | **Cái bàn** | Đồ dùng, Thiết bị & Gia dụng | 23 | 70 |
+| 72 | **Cái chảo** | Đồ dùng, Thiết bị & Gia dụng | 24 | 67 |
+| 73 | **Cái cửa** | Đồ dùng, Thiết bị & Gia dụng | 22 | 65 |
+| 74 | **Cái ghế** | Đồ dùng, Thiết bị & Gia dụng | 21 | 64 |
+| 75 | **Cái kéo** | Đồ dùng, Thiết bị & Gia dụng | 16 | 59 |
+| 76 | **Cái nồi** | Đồ dùng, Thiết bị & Gia dụng | 21 | 68 |
+| 77 | **Cái quần** | Trang phục & Phụ kiện | 16 | 62 |
+| 78 | **Cái áo** | Trang phục & Phụ kiện | 18 | 58 |
+| 79 | **Cái đèn** | Đồ dùng, Thiết bị & Gia dụng | 22 | 71 |
+| 80 | **Có** | Trợ từ & Cụm phủ định | 17 | 58 |
+| 81 | **Cô** | Gia đình & Xưng hô | 23 | 71 |
+| 82 | **Công ty** | Địa điểm & Công trình | 19 | 61 |
+| 83 | **Công viên** | Địa điểm & Công trình | 21 | 65 |
+| 84 | **Cũ** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 85 | **Cười** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 86 | **Cảm thấy** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 18 | 58 |
+| 87 | **Cảm ơn** | Động từ hành động & Sinh hoạt | 16 | 58 |
+| 88 | **Cần** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 16 | 58 |
+| 89 | **Cầu lông** | Thể thao & Giải trí | 17 | 57 |
+| 90 | **Cậu** | Gia đình & Xưng hô | 22 | 67 |
+| 91 | **Cắm trại** | Thể thao & Giải trí | 16 | 64 |
+| 92 | **Cục tẩy** | Đồ dùng, Thiết bị & Gia dụng | 17 | 58 |
+| 93 | **Cứng** | Tính từ & Miêu tả đặc điểm | 18 | 64 |
+| 94 | **Cửa sổ** | Đồ dùng, Thiết bị & Gia dụng | 22 | 69 |
+| 95 | **Diễn viên** | Nghề nghiệp & Xã hội | 18 | 57 |
+| 96 | **Dài** | Tính từ & Miêu tả đặc điểm | 18 | 72 |
+| 97 | **Dây chuyền** | Đồ dùng, Thiết bị & Gia dụng | 18 | 58 |
+| 98 | **Dép** | Trang phục & Phụ kiện | 16 | 54 |
+| 99 | **Dì** | Gia đình & Xưng hô | 21 | 70 |
+| 100 | **Dũng cảm** | Tính từ & Miêu tả đặc điểm | 16 | 61 |
+| 101 | **Dơ** | Tính từ & Miêu tả đặc điểm | 22 | 72 |
+| 102 | **Dễ** | Tính từ & Miêu tả đặc điểm | 26 | 81 |
+| 103 | **Dỗi** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 16 | 58 |
+| 104 | **Dở** | Tính từ & Miêu tả đặc điểm | 18 | 58 |
+| 105 | **Dụng cụ học tập** | Đồ dùng, Thiết bị & Gia dụng | 16 | 58 |
+| 106 | **Dừng lại** | Động từ hành động & Sinh hoạt | 17 | 58 |
+| 107 | **Dữ** | Tính từ & Miêu tả đặc điểm | 19 | 61 |
+| 108 | **Em** | Gia đình & Xưng hô | 24 | 85 |
+| 109 | **Ghét** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 16 | 58 |
+| 110 | **Già** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 111 | **Giàu** | Tính từ & Miêu tả đặc điểm | 18 | 69 |
+| 112 | **Giày** | Trang phục & Phụ kiện | 16 | 58 |
+| 113 | **Giám đốc** | Nghề nghiệp & Xã hội | 16 | 54 |
+| 114 | **Giáng sinh** | Quốc gia & Ngày lễ | 17 | 58 |
+| 115 | **Giây** | Thời gian, Lịch & Mùa | 16 | 58 |
+| 116 | **Gió** | Thời gian, Lịch & Mùa | 19 | 75 |
+| 117 | **Giúp đỡ** | Động từ hành động & Sinh hoạt | 16 | 64 |
+| 118 | **Giường** | Đồ dùng, Thiết bị & Gia dụng | 22 | 79 |
+| 119 | **Giấy nháp** | Đồ dùng, Thiết bị & Gia dụng | 17 | 58 |
+| 120 | **Giặt đồ** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 121 | **Giỏi** | Tính từ & Miêu tả đặc điểm | 16 | 58 |
+| 122 | **Giới thiệu** | Động từ hành động & Sinh hoạt | 17 | 57 |
+| 123 | **Giờ** | Thời gian, Lịch & Mùa | 17 | 57 |
+| 124 | **Gạo** | Ẩm thực (Món ăn & Đồ uống) | 16 | 57 |
+| 125 | **Gần** | Tính từ & Miêu tả đặc điểm | 18 | 58 |
+| 126 | **Gọi** | Động từ hành động & Sinh hoạt | 16 | 59 |
+| 127 | **Gối (đầu)** | Đồ dùng, Thiết bị & Gia dụng | 21 | 70 |
+| 128 | **Gội đầu** | Động từ hành động & Sinh hoạt | 16 | 60 |
+| 129 | **Hay (khen)** | Tính từ & Miêu tả đặc điểm | 16 | 63 |
+| 130 | **Hiền** | Tính từ & Miêu tả đặc điểm | 18 | 58 |
+| 131 | **Hiệu trưởng** | Nghề nghiệp & Xã hội | 15 | 59 |
+| 132 | **Hoàng hôn** | Thời gian, Lịch & Mùa | 16 | 58 |
+| 133 | **Hy vọng** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 16 | 57 |
+| 134 | **Hài hước** | Tính từ & Miêu tả đặc điểm | 17 | 65 |
+| 135 | **Hàn Quốc** | Quốc gia & Ngày lễ | 18 | 59 |
+| 136 | **Hát** | Động từ hành động & Sinh hoạt | 17 | 74 |
+| 137 | **Hôi** | Tính từ & Miêu tả đặc điểm | 16 | 57 |
+| 138 | **Hư** | Tính từ & Miêu tả đặc điểm | 16 | 62 |
+| 139 | **Hẹp** | Tính từ & Miêu tả đặc điểm | 20 | 75 |
+| 140 | **Họ hàng** | Gia đình & Xưng hô | 23 | 67 |
+| 141 | **Học** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 142 | **Học sinh** | Nghề nghiệp & Xã hội | 16 | 54 |
+| 143 | **Hứa** | Động từ hành động & Sinh hoạt | 16 | 58 |
+| 144 | **Kem** | Ẩm thực (Món ăn & Đồ uống) | 17 | 58 |
+| 145 | **Khoe khoang** | Động từ hành động & Sinh hoạt | 17 | 58 |
+| 146 | **Khám bệnh** | Động từ hành động & Sinh hoạt | 16 | 54 |
+| 147 | **Khó** | Tính từ & Miêu tả đặc điểm | 16 | 57 |
+| 148 | **Khóc** | Động từ hành động & Sinh hoạt | 16 | 57 |
+| 149 | **Khô** | Tính từ & Miêu tả đặc điểm | 17 | 58 |
+| 150 | **Không cho** | Trợ từ & Cụm phủ định | 16 | 62 |
+| 151 | **Không cần** | Trợ từ & Cụm phủ định | 16 | 59 |
+| 152 | **Không nghe lời** | Trợ từ & Cụm phủ định | 16 | 54 |
+| 153 | **Không nên** | Trợ từ & Cụm phủ định | 17 | 65 |
+| 154 | **Không quen** | Trợ từ & Cụm phủ định | 17 | 58 |
+| 155 | **Khăn quàng cổ** | Trang phục & Phụ kiện | 16 | 54 |
+| 156 | **Khỏe** | Tính từ & Miêu tả đặc điểm | 16 | 58 |
+| 157 | **Kính lúp** | Đồ dùng, Thiết bị & Gia dụng | 16 | 57 |
+| 158 | **Kẹo** | Ẩm thực (Món ăn & Đồ uống) | 19 | 64 |
+| 159 | **Kẹp tóc** | Trang phục & Phụ kiện | 17 | 57 |
+| 160 | **Kế toán** | Nghề nghiệp & Xã hội | 16 | 54 |
+| 161 | **Laptop** | Đồ dùng, Thiết bị & Gia dụng | 19 | 65 |
+| 162 | **Luật sư** | Nghề nghiệp & Xã hội | 16 | 55 |
+| 163 | **Làm bài tập** | Động từ hành động & Sinh hoạt | 16 | 62 |
+| 164 | **Làm việc** | Động từ hành động & Sinh hoạt | 21 | 77 |
+| 165 | **Lùn** | Tính từ & Miêu tả đặc điểm | 16 | 61 |
+| 166 | **Lười biếng** | Tính từ & Miêu tả đặc điểm | 16 | 66 |
+| 167 | **Lạnh** | Tính từ & Miêu tả đặc điểm | 20 | 76 |
+| 168 | **Lễ tân** | Nghề nghiệp & Xã hội | 16 | 64 |
+| 169 | **Mua bán** | Động từ hành động & Sinh hoạt | 17 | 58 |
+| 170 | **Muốn** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 19 | 79 |
+| 171 | **Màu cam** | Màu sắc | 16 | 59 |
+| 172 | **Màu hồng** | Màu sắc | 16 | 63 |
+| 173 | **Màu nâu** | Màu sắc | 19 | 73 |
+| 174 | **Màu trắng** | Màu sắc | 16 | 56 |
+| 175 | **Màu tím** | Màu sắc | 16 | 63 |
+| 176 | **Màu vàng** | Màu sắc | 19 | 70 |
+| 177 | **Màu xanh da trời** | Màu sắc | 16 | 58 |
+| 178 | **Màu xanh lá cây** | Màu sắc | 17 | 61 |
+| 179 | **Màu đen** | Màu sắc | 16 | 56 |
+| 180 | **Màu đỏ** | Màu sắc | 16 | 59 |
+| 181 | **Mách** | Động từ hành động & Sinh hoạt | 16 | 59 |
+| 182 | **Mát mẻ** | Tính từ & Miêu tả đặc điểm | 17 | 57 |
+| 183 | **Máy bay** | Phương tiện giao thông | 18 | 56 |
+| 184 | **Máy chiếu** | Đồ dùng, Thiết bị & Gia dụng | 18 | 62 |
+| 185 | **Máy giặt** | Đồ dùng, Thiết bị & Gia dụng | 21 | 73 |
+| 186 | **Máy tính cầm tay** | Đồ dùng, Thiết bị & Gia dụng | 16 | 60 |
+| 187 | **Máy điều hòa** | Đồ dùng, Thiết bị & Gia dụng | 24 | 69 |
+| 188 | **Mì gói** | Ẩm thực (Món ăn & Đồ uống) | 17 | 59 |
+| 189 | **Mùa hè** | Thời gian, Lịch & Mùa | 26 | 94 |
+| 190 | **Mùa khô** | Thời gian, Lịch & Mùa | 23 | 66 |
+| 191 | **Mùa mưa** | Thời gian, Lịch & Mùa | 17 | 61 |
+| 192 | **Mùa thu** | Thời gian, Lịch & Mùa | 19 | 75 |
+| 193 | **Mùa xuân** | Thời gian, Lịch & Mùa | 19 | 61 |
+| 194 | **Mùa đông** | Thời gian, Lịch & Mùa | 21 | 76 |
+| 195 | **Múa** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 196 | **Mũ** | Trang phục & Phụ kiện | 16 | 54 |
+| 197 | **Mũ bảo hiểm** | Trang phục & Phụ kiện | 16 | 59 |
+| 198 | **Mưa** | Thời gian, Lịch & Mùa | 19 | 61 |
+| 199 | **Mạnh** | Tính từ & Miêu tả đặc điểm | 16 | 57 |
+| 200 | **Mập** | Tính từ & Miêu tả đặc điểm | 16 | 64 |
+| 201 | **Mặn** | Tính từ & Miêu tả đặc điểm | 16 | 60 |
+| 202 | **Mẹ** | Gia đình & Xưng hô | 16 | 57 |
+| 203 | **Mềm** | Tính từ & Miêu tả đặc điểm | 17 | 63 |
+| 204 | **Mền** | Đồ dùng, Thiết bị & Gia dụng | 21 | 64 |
+| 205 | **Mệt** | Tính từ & Miêu tả đặc điểm | 16 | 58 |
+| 206 | **Mới** | Tính từ & Miêu tả đặc điểm | 17 | 57 |
+| 207 | **Mỹ** | Quốc gia & Ngày lễ | 18 | 58 |
+| 208 | **Nghe** | Động từ hành động & Sinh hoạt | 20 | 71 |
+| 209 | **Nghèo** | Tính từ & Miêu tả đặc điểm | 18 | 59 |
+| 210 | **Nghề nghiệp** | Nghề nghiệp & Xã hội | 24 | 80 |
+| 211 | **Nghỉ ngơi** | Động từ hành động & Sinh hoạt | 16 | 57 |
+| 212 | **Ngoan** | Tính từ & Miêu tả đặc điểm | 14 | 61 |
+| 213 | **Ngon miệng** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 214 | **Ngu ngốc** | Tính từ & Miêu tả đặc điểm | 17 | 57 |
+| 215 | **Ngày** | Thời gian, Lịch & Mùa | 22 | 98 |
+| 216 | **Ngày Nhà giáo Việt Nam** | Quốc gia & Ngày lễ | 23 | 72 |
+| 217 | **Ngày Quốc tế Lao động** | Quốc gia & Ngày lễ | 18 | 62 |
+| 218 | **Ngày Quốc tế Phụ nữ** | Quốc gia & Ngày lễ | 21 | 69 |
+| 219 | **Ngày Quốc tế Thiếu nhi** | Quốc gia & Ngày lễ | 16 | 59 |
+| 220 | **Ngân hàng** | Địa điểm & Công trình | 22 | 65 |
+| 221 | **Ngắn** | Tính từ & Miêu tả đặc điểm | 19 | 67 |
+| 222 | **Ngọt** | Tính từ & Miêu tả đặc điểm | 16 | 70 |
+| 223 | **Ngủ** | Động từ hành động & Sinh hoạt | 17 | 58 |
+| 224 | **Ngửi** | Động từ hành động & Sinh hoạt | 17 | 59 |
+| 225 | **Nhanh** | Tính từ & Miêu tả đặc điểm | 17 | 65 |
+| 226 | **Nhà** | Địa điểm & Công trình | 20 | 62 |
+| 227 | **Nhà hàng** | Địa điểm & Công trình | 22 | 64 |
+| 228 | **Nhà sách** | Địa điểm & Công trình | 21 | 65 |
+| 229 | **Nhà trọ** | Địa điểm & Công trình | 22 | 66 |
+| 230 | **Nhân viên phục vụ** | Nghề nghiệp & Xã hội | 15 | 53 |
+| 231 | **Nhân viên văn phòng** | Nghề nghiệp & Xã hội | 16 | 54 |
+| 232 | **Nhạt** | Tính từ & Miêu tả đặc điểm | 16 | 69 |
+| 233 | **Nhảy cao** | Động từ hành động & Sinh hoạt | 19 | 61 |
+| 234 | **Nhảy dây** | Động từ hành động & Sinh hoạt | 16 | 62 |
+| 235 | **Nhầm lẫn** | Tính từ & Miêu tả đặc điểm | 16 | 57 |
+| 236 | **Nhật Bản** | Quốc gia & Ngày lễ | 18 | 60 |
+| 237 | **Nhẹ** | Tính từ & Miêu tả đặc điểm | 20 | 82 |
+| 238 | **Nên** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 18 | 69 |
+| 239 | **Nói** | Động từ hành động & Sinh hoạt | 17 | 57 |
+| 240 | **Nói chuyện** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 241 | **Nóng** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 242 | **Nông dân** | Nghề nghiệp & Xã hội | 18 | 56 |
+| 243 | **Năm** | Thời gian, Lịch & Mùa | 16 | 58 |
+| 244 | **Nước** | Ẩm thực (Món ăn & Đồ uống) | 17 | 58 |
+| 245 | **Nướng** | Động từ hành động & Sinh hoạt | 18 | 58 |
+| 246 | **Nấu** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 247 | **Nắng** | Thời gian, Lịch & Mùa | 24 | 91 |
+| 248 | **Nặng** | Tính từ & Miêu tả đặc điểm | 18 | 78 |
+| 249 | **Nếm** | Động từ hành động & Sinh hoạt | 19 | 61 |
+| 250 | **Nồi cơm điện** | Đồ dùng, Thiết bị & Gia dụng | 22 | 67 |
+| 251 | **Phút** | Thời gian, Lịch & Mùa | 17 | 59 |
+| 252 | **Phơi đồ** | Động từ hành động & Sinh hoạt | 16 | 65 |
+| 253 | **Phở** | Ẩm thực (Món ăn & Đồ uống) | 16 | 56 |
+| 254 | **Quan sát** | Động từ hành động & Sinh hoạt | 16 | 57 |
+| 255 | **Quen** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 16 | 57 |
+| 256 | **Quán cà phê** | Địa điểm & Công trình | 21 | 64 |
+| 257 | **Quạt (đứng)** | Đồ dùng, Thiết bị & Gia dụng | 23 | 73 |
+| 258 | **Quả bơ** | Trái cây (Hoa quả) | 18 | 58 |
+| 259 | **Quả cam** | Trái cây (Hoa quả) | 16 | 56 |
+| 260 | **Quả chuối** | Trái cây (Hoa quả) | 16 | 56 |
+| 261 | **Quả dâu** | Trái cây (Hoa quả) | 17 | 57 |
+| 262 | **Quả dứa** | Trái cây (Hoa quả) | 17 | 58 |
+| 263 | **Quả dừa** | Trái cây (Hoa quả) | 16 | 57 |
+| 264 | **Quả mận** | Trái cây (Hoa quả) | 16 | 63 |
+| 265 | **Quả xoài** | Trái cây (Hoa quả) | 17 | 58 |
+| 266 | **Quả đu đủ** | Trái cây (Hoa quả) | 16 | 59 |
+| 267 | **Quả đào** | Trái cây (Hoa quả) | 17 | 59 |
+| 268 | **Quả địa cầu** | Đồ dùng, Thiết bị & Gia dụng | 18 | 60 |
+| 269 | **Quần thun** | Trang phục & Phụ kiện | 17 | 55 |
+| 270 | **Quần tây** | Trang phục & Phụ kiện | 17 | 55 |
+| 271 | **Quần đùi** | Trang phục & Phụ kiện | 18 | 64 |
+| 272 | **Rượu** | Ẩm thực (Món ăn & Đồ uống) | 17 | 57 |
+| 273 | **Rạp chiếu phim** | Địa điểm & Công trình | 21 | 67 |
+| 274 | **Rẻ** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 275 | **Rộng** | Tính từ & Miêu tả đặc điểm | 18 | 66 |
+| 276 | **Rửa chén** | Động từ hành động & Sinh hoạt | 16 | 60 |
+| 277 | **Rửa mặt** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 278 | **Rửa tay** | Động từ hành động & Sinh hoạt | 17 | 83 |
+| 279 | **Sai** | Tính từ & Miêu tả đặc điểm | 16 | 57 |
+| 280 | **Sinh viên** | Nghề nghiệp & Xã hội | 16 | 54 |
+| 281 | **Siêu thị** | Địa điểm & Công trình | 20 | 64 |
+| 282 | **Sách** | Đồ dùng, Thiết bị & Gia dụng | 18 | 61 |
+| 283 | **Sáng tạo** | Tính từ & Miêu tả đặc điểm | 16 | 60 |
+| 284 | **Sạch sẽ** | Tính từ & Miêu tả đặc điểm | 16 | 59 |
+| 285 | **Sớm** | Tính từ & Miêu tả đặc điểm | 16 | 66 |
+| 286 | **Sữa** | Ẩm thực (Món ăn & Đồ uống) | 18 | 60 |
+| 287 | **Taxi** | Phương tiện giao thông | 16 | 75 |
+| 288 | **Tham lam** | Tính từ & Miêu tả đặc điểm | 16 | 63 |
+| 289 | **Tham ăn** | Tính từ & Miêu tả đặc điểm | 18 | 60 |
+| 290 | **Thay đổi** | Động từ hành động & Sinh hoạt | 17 | 57 |
+| 291 | **Thuyền** | Phương tiện giao thông | 17 | 55 |
+| 292 | **Thành phố** | Địa điểm & Công trình | 21 | 64 |
+| 293 | **Thái Lan** | Quốc gia & Ngày lễ | 18 | 58 |
+| 294 | **Tháng** | Thời gian, Lịch & Mùa | 15 | 63 |
+| 295 | **Tháng ba** | Thời gian, Lịch & Mùa | 19 | 62 |
+| 296 | **Tháng bảy** | Thời gian, Lịch & Mùa | 16 | 63 |
+| 297 | **Tháng chín** | Thời gian, Lịch & Mùa | 16 | 63 |
+| 298 | **Tháng hai** | Thời gian, Lịch & Mùa | 20 | 64 |
+| 299 | **Tháng mười** | Thời gian, Lịch & Mùa | 18 | 68 |
+| 300 | **Tháng mười hai** | Thời gian, Lịch & Mùa | 17 | 69 |
+| 301 | **Tháng mười một** | Thời gian, Lịch & Mùa | 17 | 68 |
+| 302 | **Tháng một** | Thời gian, Lịch & Mùa | 18 | 63 |
+| 303 | **Tháng năm** | Thời gian, Lịch & Mùa | 19 | 62 |
+| 304 | **Tháng sáu** | Thời gian, Lịch & Mùa | 18 | 65 |
+| 305 | **Tháng tám** | Thời gian, Lịch & Mùa | 15 | 62 |
+| 306 | **Tháng tư** | Thời gian, Lịch & Mùa | 18 | 61 |
+| 307 | **Thèm** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 17 | 61 |
+| 308 | **Thích** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 17 | 78 |
+| 309 | **Thông minh** | Tính từ & Miêu tả đặc điểm | 18 | 58 |
+| 310 | **Thú vị** | Tính từ & Miêu tả đặc điểm | 18 | 75 |
+| 311 | **Thơm** | Tính từ & Miêu tả đặc điểm | 22 | 81 |
+| 312 | **Thư ký** | Nghề nghiệp & Xã hội | 15 | 53 |
+| 313 | **Thước kẻ** | Đồ dùng, Thiết bị & Gia dụng | 18 | 59 |
+| 314 | **Thấp (đồ vật)** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 315 | **Thể dục (thể thao)** | Thể thao & Giải trí | 16 | 57 |
+| 316 | **Thịt** | Ẩm thực (Món ăn & Đồ uống) | 16 | 56 |
+| 317 | **Thời gian** | Thời gian, Lịch & Mùa | 17 | 63 |
+| 318 | **Thời tiết** | Thời gian, Lịch & Mùa | 21 | 65 |
+| 319 | **Thứ ba** | Thời gian, Lịch & Mùa | 19 | 66 |
+| 320 | **Thứ bảy** | Thời gian, Lịch & Mùa | 18 | 61 |
+| 321 | **Thứ hai** | Thời gian, Lịch & Mùa | 18 | 66 |
+| 322 | **Thứ năm** | Thời gian, Lịch & Mùa | 18 | 62 |
+| 323 | **Thứ sáu** | Thời gian, Lịch & Mùa | 18 | 75 |
+| 324 | **Thứ tư** | Thời gian, Lịch & Mùa | 20 | 64 |
+| 325 | **Thức dậy** | Động từ hành động & Sinh hoạt | 18 | 72 |
+| 326 | **Thử** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 327 | **Tivi** | Đồ dùng, Thiết bị & Gia dụng | 21 | 68 |
+| 328 | **Tiếp tục** | Động từ hành động & Sinh hoạt | 16 | 71 |
+| 329 | **Trung Quốc** | Quốc gia & Ngày lễ | 18 | 61 |
+| 330 | **Trung thu** | Quốc gia & Ngày lễ | 19 | 63 |
+| 331 | **Trà** | Ẩm thực (Món ăn & Đồ uống) | 18 | 58 |
+| 332 | **Trường Cao đẳng** | Địa điểm & Công trình | 19 | 59 |
+| 333 | **Trường học** | Địa điểm & Công trình | 22 | 64 |
+| 334 | **Trường Đại học** | Địa điểm & Công trình | 22 | 67 |
+| 335 | **Trẻ** | Tính từ & Miêu tả đặc điểm | 17 | 59 |
+| 336 | **Trễ** | Tính từ & Miêu tả đặc điểm | 18 | 58 |
+| 337 | **Trứng** | Ẩm thực (Món ăn & Đồ uống) | 17 | 61 |
+| 338 | **Trực thăng** | Phương tiện giao thông | 17 | 55 |
+| 339 | **Tàu hỏa** | Phương tiện giao thông | 16 | 68 |
+| 340 | **Tìm** | Động từ hành động & Sinh hoạt | 17 | 57 |
+| 341 | **Túi xách** | Đồ dùng, Thiết bị & Gia dụng | 16 | 54 |
+| 342 | **Tường** | Đồ dùng, Thiết bị & Gia dụng | 21 | 64 |
+| 343 | **Tắm rửa** | Động từ hành động & Sinh hoạt | 16 | 58 |
+| 344 | **Tết Âm lịch** | Quốc gia & Ngày lễ | 16 | 59 |
+| 345 | **Tỉnh** | Địa điểm & Công trình | 21 | 71 |
+| 346 | **Tốt bụng** | Tính từ & Miêu tả đặc điểm | 16 | 58 |
+| 347 | **Tủ lạnh** | Đồ dùng, Thiết bị & Gia dụng | 22 | 65 |
+| 348 | **Từ chối** | Động từ hành động & Sinh hoạt | 17 | 69 |
+| 349 | **Uống** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 350 | **Viên phấn** | Đồ dùng, Thiết bị & Gia dụng | 17 | 57 |
+| 351 | **Viết** | Động từ hành động & Sinh hoạt | 16 | 54 |
+| 352 | **Việt Nam** | Quốc gia & Ngày lễ | 18 | 58 |
+| 353 | **Vâng lời** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 354 | **Vòng tay** | Trang phục & Phụ kiện | 18 | 57 |
+| 355 | **Võ** | Thể thao & Giải trí | 17 | 57 |
+| 356 | **Vở** | Đồ dùng, Thiết bị & Gia dụng | 21 | 63 |
+| 357 | **Vợ** | Gia đình & Xưng hô | 17 | 66 |
+| 358 | **Xa** | Tính từ & Miêu tả đặc điểm | 20 | 61 |
+| 359 | **Xe buýt** | Phương tiện giao thông | 16 | 55 |
+| 360 | **Xe máy** | Phương tiện giao thông | 16 | 54 |
+| 361 | **Xe tải** | Phương tiện giao thông | 17 | 55 |
+| 362 | **Xe đạp** | Phương tiện giao thông | 16 | 54 |
+| 363 | **Xem** | Động từ hành động & Sinh hoạt | 16 | 72 |
+| 364 | **Xin** | Động từ hành động & Sinh hoạt | 17 | 59 |
+| 365 | **Xin lỗi** | Động từ hành động & Sinh hoạt | 17 | 62 |
+| 366 | **Xôi** | Ẩm thực (Món ăn & Đồ uống) | 18 | 74 |
+| 367 | **Xấu (người)** | Tính từ & Miêu tả đặc điểm | 18 | 58 |
+| 368 | **Xấu (vật)** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 369 | **Y tá** | Nghề nghiệp & Xã hội | 17 | 55 |
+| 370 | **Yên tĩnh** | Tính từ & Miêu tả đặc điểm | 16 | 61 |
+| 371 | **Yêu thương** | Cảm xúc, Nhu cầu & Trạng thái tâm lý | 16 | 54 |
+| 372 | **Yếu** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 373 | **Áo sơ mi** | Trang phục & Phụ kiện | 16 | 54 |
+| 374 | **Áo thun** | Trang phục & Phụ kiện | 16 | 54 |
+| 375 | **Áo đầm** | Trang phục & Phụ kiện | 16 | 55 |
+| 376 | **Ô tô** | Phương tiện giao thông | 17 | 55 |
+| 377 | **Ông ngoại** | Gia đình & Xưng hô | 21 | 68 |
+| 378 | **Ông nội** | Gia đình & Xưng hô | 20 | 70 |
+| 379 | **Ăn** | Động từ hành động & Sinh hoạt | 17 | 57 |
+| 380 | **Đau** | Tính từ & Miêu tả đặc điểm | 17 | 73 |
+| 381 | **Đi** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 382 | **Điền kinh** | Thể thao & Giải trí | 16 | 57 |
+| 383 | **Điện thoại** | Đồ dùng, Thiết bị & Gia dụng | 16 | 56 |
+| 384 | **Đá cầu** | Thể thao & Giải trí | 19 | 62 |
+| 385 | **Đúng** | Tính từ & Miêu tả đặc điểm | 16 | 56 |
+| 386 | **Đầu bếp** | Nghề nghiệp & Xã hội | 16 | 55 |
+| 387 | **Đậm** | Tính từ & Miêu tả đặc điểm | 16 | 57 |
+| 388 | **Đắng** | Tính từ & Miêu tả đặc điểm | 17 | 57 |
+| 389 | **Đắt** | Tính từ & Miêu tả đặc điểm | 16 | 60 |
+| 390 | **Đẹp (người)** | Tính từ & Miêu tả đặc điểm | 19 | 63 |
+| 391 | **Đẹp (vật)** | Tính từ & Miêu tả đặc điểm | 16 | 60 |
+| 392 | **Đọc** | Động từ hành động & Sinh hoạt | 17 | 57 |
+| 393 | **Đồ buộc tóc** | Đồ dùng, Thiết bị & Gia dụng | 16 | 56 |
+| 394 | **Đồ dùng** | Đồ dùng, Thiết bị & Gia dụng | 22 | 65 |
+| 395 | **Đồng hồ đeo tay** | Đồ dùng, Thiết bị & Gia dụng | 21 | 61 |
+| 396 | **Đồng ý** | Động từ hành động & Sinh hoạt | 16 | 56 |
+| 397 | **Ướt** | Tính từ & Miêu tả đặc điểm | 23 | 80 |
+| 398 | **Ấm** | Tính từ & Miêu tả đặc điểm | 16 | 54 |
+| 399 | **Ốm** | Tính từ & Miêu tả đặc điểm | 16 | 60 |
+| 400 | **Ồn ào** | Tính từ & Miêu tả đặc điểm | 16 | 63 |
