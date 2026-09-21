@@ -158,6 +158,7 @@ def main() -> None:
     parser.add_argument("--max-time-scale", default=1.12, type=float)
     parser.add_argument("--label-smoothing", default=0.05, type=float)
     parser.add_argument("--confidence-threshold", default=0.55, type=float)
+    parser.add_argument("--checkpoint", default=None, type=Path, help="Path to checkpoint best.pt to resume from.")
     args = parser.parse_args()
 
     seed_everything(args.seed)
@@ -196,6 +197,10 @@ def main() -> None:
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = build_model(args.model, input_dim=X.shape[-1], num_classes=len(labels)).to(device)
+    if args.checkpoint and Path(args.checkpoint).exists():
+        ckpt = torch.load(args.checkpoint, map_location=device)
+        model.load_state_dict(ckpt["model_state"])
+        print(f"Loaded existing weights from {args.checkpoint} to resume training!", flush=True)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
@@ -218,7 +223,8 @@ def main() -> None:
         history.append(metrics)
         print(
             f"epoch={epoch:03d} loss={metrics['train_loss']:.4f} "
-            f"top1={metrics['top1']:.3f} top3={metrics['top3']:.3f} f1={metrics['macro_f1']:.3f}"
+            f"top1={metrics['top1']:.3f} top3={metrics['top3']:.3f} f1={metrics['macro_f1']:.3f}",
+            flush=True,
         )
         if metrics["top1"] > best_top1:
             best_top1 = metrics["top1"]

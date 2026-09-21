@@ -29,7 +29,11 @@ from .landmarks import LandmarkExtractor
 from .landmarks_v2 import HolisticLandmarkExtractor
 
 
-DEFAULT_MODEL_DIR = Path("runs/vsl_mvp30_v2_lite_transformer")
+DEFAULT_MODEL_DIR = (
+    Path("runs/vsl_mvp400_v2_lite_transformer")
+    if Path("runs/vsl_mvp400_v2_lite_transformer").exists()
+    else Path("runs/vsl_mvp30_v2_lite_transformer")
+)
 DEFAULT_LOG_DIR = Path("runs/deploy_tests")
 DEFAULT_SAMPLE_VIDEO_DIR = Path("data/practice_videos_web")
 VIDEO_EXTENSIONS = {

@@ -1,0 +1,65 @@
+# Vietnamese Sign Language Dataset Tool
+
+Công cụ xây dựng dataset cho ngôn ngữ ký hiệu Việt Nam từ video tin tức HTV.
+
+## 📋 Mục lục
+- [Cấu trúc dự án](#cấu-trúc-dự-án)
+- [Cài đặt và Setup](#cài-đặt-và-setup)
+- [Hướng dẫn chạy Transcription](#hướng-dẫn-chạy-transcription)
+
+## 🏗️ Cấu trúc dự án
+
+vsl_dataset_tool/
+├── README.md                  # Hướng dẫn tổng quan dự án, cách cài đặt, chạy pipeline
+├── requirements.txt           # Danh sách thư viện cần install (e.g., ultralytics, whisperx, pandas, yt-dlp)
+├── config.yaml                # File config cho các tham số (e.g., đường dẫn YouTube playlist, threshold YOLO, ngôn ngữ Whisper)
+├── main.py                    # Script chính để chạy toàn bộ pipeline (tích hợp các module)
+├── run_pipeline.sh            # Script bash để chạy pipeline (tùy chọn, cho Linux/Mac)
+├── .gitignore                 # Ignore file cho git (e.g., ignore dữ liệu lớn, cache)
+
+├── src/                       # Source code chính (các module Python)
+│   ├── __init__.py
+│   ├── data_collection.py     # Module thu thập video từ YouTube (sử dụng yt-dlp, lọc video có người ký hiệu)
+│   ├── detection.py           # Module phát hiện người ký hiệu bằng YOLOv8 (trích xuất vùng, timeline hoạt động)
+│   ├── transcription.py       # Module nhận dạng giọng nói bằng WhisperX (trích transcript + timestamp)
+│   ├── alignment.py           # Module căn chỉnh video ký hiệu với transcript (ghép cặp start/end)
+│   ├── dataset_export.py      # Module xuất dataset (CSV: {id, video_path, transcript, start, end})
+│   ├── evaluation.py          # Module đánh giá (thống kê dữ liệu, test với SpaMo/PHOENIX14T pretrained)
+│   └── utils.py               # Các hàm hỗ trợ chung (e.g., logging, xử lý video, thống kê)
+
+├── data/                      # Thư mục dữ liệu (không commit lên git nếu lớn, dùng .gitignore)
+│   ├── raw/                   # Video gốc thu thập từ YouTube
+│   │   └── htv_news_2024_2025/ # Phân loại theo năm/tháng
+│   ├── processed/             # Clips đã cắt (output của pipeline)
+│   │   └── clips/             # Các file .mp4 đã trích xuất
+│   ├── metadata/              # File metadata
+│   │   ├── vsl_sentence_dataset.csv  # Dataset chính (id, video_path, transcript, start, end)
+│   │   └── stats.json         # Thống kê (số clip, độ dài trung bình, từ vựng, số người ký hiệu)
+│   └── temp/                  # Thư mục tạm (cache Whisper/YOLO, xóa sau khi chạy)
+
+├── models/                    # Mô hình AI (tải về hoặc train)
+│   ├── yolo/                  # Weights YOLOv8 (e.g., yolov8n.pt pretrained, hoặc custom train cho signer detection)
+│   ├── whisper/               # Models WhisperX (e.g., base.en hoặc vi cho tiếng Việt)
+│   └── spamo/                 # Models SpaMo/PHOENIX14T pretrained cho đánh giá SLT
+
+├── notebooks/                 # Jupyter notebooks cho nghiên cứu/exploration (không dùng trong production)
+│   ├── 01_data_exploration.ipynb  # Khảo sát video HTV, test thu thập
+│   ├── 02_yolo_detection.ipynb    # Test YOLOv8 trên sample video
+│   ├── 03_whisper_transcription.ipynb  # Test WhisperX timestamp
+│   └── 04_evaluation.ipynb         # Thống kê và test SpaMo
+
+├── docs/                      # Tài liệu dự án
+│   ├── pipeline_diagram.png   # Sơ đồ pipeline (có thể vẽ bằng draw.io)
+│   ├── report/                # Báo cáo (theo kế hoạch tháng)
+│   │   ├── month1_overview.md # Báo cáo tổng quan nghiên cứu
+│   │   ├── month2_pipeline.md # Mô tả kỹ thuật pipeline
+│   │   └── month3_evaluation.md # Đánh giá dataset
+│   └── demo/                  # Demo (video minh họa pipeline chạy)
+
+├── tests/                     # Unit tests (tùy chọn, để kiểm tra code)
+│   ├── test_detection.py
+│   └── test_alignment.py
+
+└── outputs/                   # Output cuối cùng (dataset hoàn chỉnh)
+    ├── vsl_sentence_dataset.7z  # Archive clips + meta.csv (kết quả dự kiến)
+    └── evaluation_report.pdf     # Báo cáo đánh giá (biểu đồ, bảng thống kê)
